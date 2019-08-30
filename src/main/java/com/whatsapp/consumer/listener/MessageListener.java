@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 
 import com.messageproducer.model.Message;
 import com.messageproducer.model.TransactionMessage;
+import com.whatsapp.consumer.service.WhatsAppClient;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -25,8 +26,8 @@ import lombok.extern.slf4j.Slf4j;
 public class MessageListener {
 private static final Logger logger=LoggerFactory.getLogger(MessageListener.class);
 private final String LogHead="transaction.queue Consumer() :: ";	
-	
-	
+	@Autowired
+	private WhatsAppClient whatsAppClient;
 	@JmsListener(destination="transaction.queue")
 	public void receiveMessage(org.apache.activemq.Message object) {
 		String logHead="WhatsAppClient.class sendNotification() :: ";
@@ -37,9 +38,7 @@ private final String LogHead="transaction.queue Consumer() :: ";
 		TransactionMessage msg=(TransactionMessage)objMsg.getObject();
 		logHead+=logHead+"Message Id-{"+msg.getMessageId()+"} | ";
 		logger.info(logHead+"Recieved Message "+msg.toString());
-		//PpRequest pp=new PpRequest(null,request.getUin(),request.getName(),request.getMobile(),request.getDOB(),null,0,request.getEmail());
-		//pp=ppRequestDAO.addRequest(pp);
-		//logger.info(LogHead+"Loigged Into DataBase For Processing "+pp.toString());
+		whatsAppClient.sendNotification(msg);
 		}catch(Exception e) {
 			logger.error(logHead+"Exception Occure "+e);
 		}
