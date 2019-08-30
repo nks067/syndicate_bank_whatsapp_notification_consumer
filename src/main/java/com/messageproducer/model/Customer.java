@@ -1,4 +1,4 @@
-package com.whatsapp.consumer.model;
+package com.messageproducer.model;
 
 import lombok.Data;
 
@@ -6,4 +6,5 @@ import lombok.Data;
 public class Customer {
 	private Long customerId;
 	private String customerName;
+	private String contactNum;
 }
