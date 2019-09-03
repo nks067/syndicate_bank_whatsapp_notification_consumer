@@ -48,19 +48,19 @@
 			<artifactId>activemq-broker</artifactId>
 			<version>5.13.4</version>
 		</dependency>
-		  <!-- dependency>
-        <groupId>com.twilio.sdk</groupId>
-        <artifactId>twilio-java-sdk</artifactId>
-        <version>3.4.5</version>
-    </dependency -->
-    <dependency>
-  <groupId>com.twilio.sdk</groupId>
-  <artifactId>twilio</artifactId>
-  <version>7.41.2</version>
-</dependency>
+		<!-- dependency>
+        		<groupId>com.twilio.sdk</groupId>
+		        <artifactId>twilio-java-sdk</artifactId>
+		        <version>3.4.5</version>
+	        </dependency -->
+		<dependency>
+			<groupId>com.twilio.sdk</groupId>
+			<artifactId>twilio</artifactId>
+			<version>7.41.2</version>
+		</dependency>
 	</dependencies>
-
 	<build>
+		<finalName>notificaton-consumer-latest</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -68,5 +68,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
