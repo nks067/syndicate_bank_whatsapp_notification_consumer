@@ -18,7 +18,12 @@ public class Message implements java.io.Serializable{
 		this.timeStamp = timeStamp;
 	}
 	
+	public Long getMessageId() {
+		return this.messageId;
+	}
 	
+	public String getMessage() {
+		return this.message;
+	}
 	
-
 }

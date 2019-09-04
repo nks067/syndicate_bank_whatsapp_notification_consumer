@@ -19,5 +19,8 @@ public class TransactionMessage extends Message implements Serializable {
 	public String toString() {
 		return "TransactionMessage [contactNumber=" + contactNumber + ", Message()=" + super.toString() + "]";
 	}
-	
+	public String getContactNumber() {
+		// TODO Auto-generated method stub
+		return this.contactNumber;
+	}
 }
