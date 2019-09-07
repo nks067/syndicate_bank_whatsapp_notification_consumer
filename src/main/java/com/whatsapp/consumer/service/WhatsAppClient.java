@@ -19,8 +19,8 @@ import com.twilio.type.PhoneNumber;
 @Slf4j
 @Component
 public class WhatsAppClient {
-	public static final String ACCOUNT_SID="ACb45516734cd35efef11469cd8c3b0fd4";
-	public static final String AUTH_TOKEN="310bb80f44f6580ebadf434d349066c9";
+	public static final String ACCOUNT_SID="AC9e2ec3e819222baac7d6d520cdf79897";
+	public static final String AUTH_TOKEN="a0664845c9fa0e0dc0340a663a2c2159";
 	
 	
 	public void sendNotification(com.messageproducer.model.TransactionMessage msg) {
@@ -37,9 +37,10 @@ public class WhatsAppClient {
 	        MessageFactory messageFactory = client.getAccount().getMessageFactory();
 	        Message message = messageFactory.create(params);
 	     //   System.out.println();*/
+	    	System.out.println(msg.getContactNumber());
 	    	Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
 	        Message message = Message.creator(
-	                new com.twilio.type.PhoneNumber("whatsapp:+"+msg.getContactNumber()),
+	                new com.twilio.type.PhoneNumber("whatsapp:"+msg.getContactNumber()),
 	                new com.twilio.type.PhoneNumber("whatsapp:+14155238886"),msg.getMessage())
 	            .create();
 
@@ -49,6 +50,7 @@ public class WhatsAppClient {
 	    } 
 	    catch (Exception e) {
 	    	log.error(logHead+"Message Exception :: "+e);
+	    	System.out.println(e.getMessage());
 	    }
 	}
 }

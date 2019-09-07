@@ -60,7 +60,7 @@
 		</dependency>
 	</dependencies>
 	<build>
-		<finalName>notificaton-consumer-latest</finalName>
+		<finalName>notification-consumer-latest</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
